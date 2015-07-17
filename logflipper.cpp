@@ -48,12 +48,15 @@ int main(int argc, char* argv[])
     currentEntry += line;
     currentEntry += "\n";
   }
+  if(!currentEntry.empty()) {
+    entries.push_back(currentEntry);
+  }
   readFile.close();
 
   for(auto entryIt = entries.rbegin();
     entryIt != entries.rend();
     ++entryIt) {
-    writeFile << (*entryIt) << std::endl;
+    writeFile << (*entryIt);
   }
   writeFile.close();
 
